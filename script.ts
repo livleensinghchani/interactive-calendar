@@ -1,4 +1,6 @@
-const currentDate = document.querySelector(".currentDate");
+const tagCurrentDate = document.querySelector(".currentDate");
+let tagDayList = document.querySelector(".days");
+let btnNext = document.querySelectorAll(".icon");
 
 let date = new Date();
 let currentYear = date.getFullYear();
@@ -9,9 +11,15 @@ const aryMonth = ["January", "February", "March", "April", "May", "June", "July"
 
 const loadCalendar = function()  
 {
-    let lastDateOfMonth = new Date(currentYear, currentMonth, 0).getDate();
-    console.log(lastDateOfMonth);
-    (<HTMLElement>currentDate).innerText = aryMonth[currentMonth]+" "+(currentYear);
+    let lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    let tempDayNumber = "";
+
+    for (let index = 1; index <= lastDateOfMonth; index++) 
+    {
+        tagDayList.innerHTML += "<li>"+ index + "</li>";
+    }
+
+    (<HTMLElement>tagCurrentDate).innerText = aryMonth[currentMonth]+" "+(currentYear);
 }
 
 loadCalendar();

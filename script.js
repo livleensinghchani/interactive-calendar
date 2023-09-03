@@ -1,12 +1,17 @@
-var currentDate = document.querySelector(".currentDate");
+var tagCurrentDate = document.querySelector(".currentDate");
+var tagDayList = document.querySelector(".days");
+var btnNext = document.querySelectorAll(".icon");
 var date = new Date();
 var currentYear = date.getFullYear();
 var currentMonth = date.getMonth();
 var aryMonth = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
 var loadCalendar = function () {
-    var lastDateOfMonth = new Date(currentYear, currentMonth, 0).getDate();
-    console.log(lastDateOfMonth);
-    currentDate.innerText = aryMonth[currentMonth] + " " + (currentYear);
+    var lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    var tempDayNumber = "";
+    for (var index = 1; index <= lastDateOfMonth; index++) {
+        tagDayList.innerHTML += "<li>" + index + "</li>";
+    }
+    tagCurrentDate.innerText = aryMonth[currentMonth] + " " + (currentYear);
 };
 loadCalendar();
