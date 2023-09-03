@@ -1,6 +1,6 @@
 const tagCurrentDate = document.querySelector(".currentDate");
-let tagDayList = document.querySelector(".days");
-let tagControlIcon = document.querySelectorAll(".icon span");
+const tagDayList = document.querySelector(".days");
+const tagControlIcon = document.querySelectorAll(".icon span");
 
 let date = new Date();
 let currentYear = date.getFullYear();
