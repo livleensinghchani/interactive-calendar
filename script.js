@@ -1,6 +1,6 @@
 var tagCurrentDate = document.querySelector(".currentDate");
 var tagDayList = document.querySelector(".days");
-var btnNext = document.querySelectorAll(".icon");
+var btnControlIcon = document.querySelectorAll(".icon span");
 var date = new Date();
 var currentYear = date.getFullYear();
 var currentMonth = date.getMonth();
@@ -15,3 +15,8 @@ var loadCalendar = function () {
     tagCurrentDate.innerText = aryMonth[currentMonth] + " " + (currentYear);
 };
 loadCalendar();
+btnControlIcon.forEach(function (element) {
+    element.addEventListener("click", function () {
+        console.log(element);
+    });
+});
