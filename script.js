@@ -1,6 +1,6 @@
 var tagCurrentDate = document.querySelector(".currentDate");
 var tagDayList = document.querySelector(".days");
-var controlIcon = document.querySelectorAll(".icon span");
+var tagControlIcon = document.querySelectorAll(".icon span");
 var date = new Date();
 var currentYear = date.getFullYear();
 var currentMonth = date.getMonth();
@@ -31,7 +31,7 @@ var loadCalendar = function () {
     tagDayList.innerHTML = dayTags;
 };
 loadCalendar();
-controlIcon.forEach(function (element) {
+tagControlIcon.forEach(function (element) {
     element.addEventListener("click", function () {
         currentMonth = element.id === "btnPrev" ? currentMonth - 1 : currentMonth + 1;
         if (currentMonth < 0 || currentMonth > 11) {

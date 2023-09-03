@@ -1,6 +1,6 @@
 const tagCurrentDate = document.querySelector(".currentDate");
 let tagDayList = document.querySelector(".days");
-let controlIcon = document.querySelectorAll(".icon span");
+let tagControlIcon = document.querySelectorAll(".icon span");
 
 let date = new Date();
 let currentYear = date.getFullYear();
@@ -48,7 +48,7 @@ const loadCalendar = function()
 
 loadCalendar();
 
-controlIcon.forEach(element => 
+tagControlIcon.forEach(element => 
 {
     element.addEventListener("click", function()
     {
