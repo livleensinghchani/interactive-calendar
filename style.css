@@ -126,5 +126,5 @@ header .icon span
 
 .active
 {
-    box-shadow: rgb(25, 211, 155) 0 0 10px 10px;          /*----Accent Color----*/
+    box-shadow: rgb(25, 211, 155) 0 0 4px 4px;          /*----Accent Color----*/
 }
