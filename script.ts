@@ -9,6 +9,8 @@ const aryMonth = ["January", "February", "March", "April", "May", "June", "July"
 
 const loadCalendar = function()  
 {
+    let lastDateOfMonth = new Date(currentYear, currentMonth, 0).getDate();
+    console.log(lastDateOfMonth);
     (<HTMLElement>currentDate).innerText = aryMonth[currentMonth]+" "+(currentYear);
 }
 
