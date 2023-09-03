@@ -1,0 +1,130 @@
+html
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: rgb(220, 220, 220);
+}
+
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 98vh;
+    background: rgb(220, 220, 220);
+}
+
+.wrapper
+{
+    width: 800px;
+    height: 700px;
+    background: rgb(30, 30, 30);
+    border-radius: 20px;
+}
+
+.wrapper header
+{
+    height: 120px;
+
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;                /* Upper Title Padding */
+    justify-content: space-between;
+
+    position: relative; top: 20px;
+}
+
+header .currentDate
+{
+    font-size: 3.4rem;
+    cursor: default;
+}
+
+header .icon span
+{
+    font-size: 40px;
+    font-weight: bolder;
+
+    position: relative; top: 6px;
+    height: 40px;
+    width: 60px;
+    cursor: pointer;
+    margin: 0 10px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    color: rgb(30, 30, 30);
+    background-color: rgb(220, 220, 220);                      /*FIX ME*/
+}
+
+.calendar
+{
+    padding: 10px;
+    position: relative;
+    top: 20px;
+}
+
+.calendar ul
+{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.calendar ul li
+{
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100%/7);
+    height: 64px;
+
+    text-align: center;
+}
+
+.weeks li 
+{
+    cursor: default;
+
+    padding-top: 10px !important; 
+    font-size: 38px;
+    font-weight: 400;
+    position: relative; top: 10px;
+}
+
+.days li
+{
+    border-radius: 8px;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.days li:hover
+{
+    color: rgb(30, 30, 30);
+
+    cursor: pointer;
+
+    font-size:  26px;
+
+    background: rgb(220, 220, 220);
+}
+
+.inactive
+{
+    color: rgb(120, 120, 120);
+    font-size: 28px !important;
+}
+
+.inactive:hover
+{
+    background: rgb(120, 120, 120) !important;
+}
+
+.active
+{
+    box-shadow: rgb(25, 211, 155) 0 0 10px 10px;          /*----Accent Color----*/
+}
