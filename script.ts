@@ -1,6 +1,6 @@
 const tagCurrentDate = document.querySelector(".currentDate");
 let tagDayList = document.querySelector(".days");
-let btnControlIcon = document.querySelectorAll(".icon span");
+let controlIcon = document.querySelectorAll(".icon span");
 
 let date = new Date();
 let currentYear = date.getFullYear();
@@ -11,23 +11,60 @@ const aryMonth = ["January", "February", "March", "April", "May", "June", "July"
 
 const loadCalendar = function()  
 {
+    let firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+    //console.log(firstDayOfMonth);
+
     let lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    let tempDayNumber = "";
+    //console.log(lastDateOfMonth);
+
+    let lastDayOfMonth = new Date(currentYear, currentMonth, lastDateOfMonth).getDay();
+    //console.log(lastDayOfMonth);
+
+    let lastDateOfLastMonth = new Date(currentYear, currentMonth, 0).getDate();
+    //console.log(lastDateOfLastMonth);
+
+    let dayTags = "";
+
+    for (let index = firstDayOfMonth; index > 0; index--) 
+    {
+        dayTags += '<li class = "inactive">'+ (lastDateOfLastMonth - index + 1) + '</li>';
+    }
 
     for (let index = 1; index <= lastDateOfMonth; index++) 
     {
-        tagDayList.innerHTML += "<li>"+ index + "</li>";
+        let activeDay = index === date.getDate() && currentMonth === new Date().getMonth()
+            && currentYear === new Date().getFullYear() ? "active" : "";
+        dayTags += '<li class ='+(activeDay)+'>'+ index + '</li>';
+    }
+
+    for (let index = lastDayOfMonth; index < 6; index++) 
+    {
+        dayTags += '<li class = "inactive">'+ (index - lastDayOfMonth + 1) + '</li>';
     }
 
     (<HTMLElement>tagCurrentDate).innerText = aryMonth[currentMonth]+" "+(currentYear);
+    tagDayList.innerHTML = dayTags;
 }
 
 loadCalendar();
 
-btnControlIcon.forEach(element => 
+controlIcon.forEach(element => 
 {
-    element.addEventListener("click", () =>
+    element.addEventListener("click", function()
     {
-        console.log(element);
+        currentMonth = element.id === "btnPrev" ? currentMonth - 1 : currentMonth + 1; 
+
+        if(currentMonth < 0 || currentMonth > 11)
+        {
+            date = new Date(currentYear, currentMonth);
+            currentYear = date.getFullYear();
+            currentMonth = date.getMonth();
+        }
+        else
+        {
+            date = new Date();
+        }
+
+        loadCalendar();
     });    
 });
