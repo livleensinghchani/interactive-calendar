@@ -34,7 +34,7 @@ const loadCalendar = function()
     {
         let activeDay = index === date.getDate() && currentMonth === new Date().getMonth()
             && currentYear === new Date().getFullYear() ? "active" : "";
-        dayTags += '<li class ='+(activeDay)+'>'+ index + '</li>';
+        dayTags += '<li id ='+("button")+' class ='+(activeDay)+'>'+ index + '</li>';
     }
 
     for (let index = lastDayOfMonth; index < 6; index++) 
@@ -68,3 +68,20 @@ tagControlIcon.forEach(element =>
         loadCalendar();
     });    
 });
+
+const tagDays = document.querySelectorAll("#button, #active");
+
+tagDays.forEach(element =>
+{
+    element.addEventListener("click", function()
+    {
+        tagDays.forEach(element => 
+        {
+            element.id = "button";    
+        });
+        
+        console.log(element.textContent);
+        element.id = "active"
+    });
+});
+
