@@ -6,7 +6,19 @@ var currentYear = date.getFullYear();
 var currentMonth = date.getMonth();
 var aryMonth = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
-var loadCalendar = function () {
+var DayList = function () {
+    var tagDays = document.querySelectorAll("#button, #active");
+    tagDays.forEach(function (element) {
+        element.addEventListener("click", function () {
+            tagDays.forEach(function (element) {
+                element.id = "button";
+            });
+            console.log(element.textContent);
+            element.id = "active";
+        });
+    });
+};
+var LoadCalendar = function () {
     var firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
     //console.log(firstDayOfMonth);
     var lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -29,8 +41,9 @@ var loadCalendar = function () {
     }
     tagCurrentDate.innerText = aryMonth[currentMonth] + " " + (currentYear);
     tagDayList.innerHTML = dayTags;
+    DayList();
 };
-loadCalendar();
+LoadCalendar();
 tagControlIcon.forEach(function (element) {
     element.addEventListener("click", function () {
         currentMonth = element.id === "btnPrev" ? currentMonth - 1 : currentMonth + 1;
@@ -42,16 +55,6 @@ tagControlIcon.forEach(function (element) {
         else {
             date = new Date();
         }
-        loadCalendar();
-    });
-});
-var tagDays = document.querySelectorAll("#button, #active");
-tagDays.forEach(function (element) {
-    element.addEventListener("click", function () {
-        tagDays.forEach(function (element) {
-            element.id = "button";
-        });
-        console.log(element.textContent);
-        element.id = "active";
+        LoadCalendar();
     });
 });
