@@ -22,7 +22,7 @@ var loadCalendar = function () {
     for (var index = 1; index <= lastDateOfMonth; index++) {
         var activeDay = index === date.getDate() && currentMonth === new Date().getMonth()
             && currentYear === new Date().getFullYear() ? "active" : "";
-        dayTags += '<li class =' + (activeDay) + '>' + index + '</li>';
+        dayTags += '<li id =' + ("button") + ' class =' + (activeDay) + '>' + index + '</li>';
     }
     for (var index = lastDayOfMonth; index < 6; index++) {
         dayTags += '<li class = "inactive">' + (index - lastDayOfMonth + 1) + '</li>';
@@ -43,5 +43,15 @@ tagControlIcon.forEach(function (element) {
             date = new Date();
         }
         loadCalendar();
+    });
+});
+var tagDays = document.querySelectorAll("#button, #active");
+tagDays.forEach(function (element) {
+    element.addEventListener("click", function () {
+        tagDays.forEach(function (element) {
+            element.id = "button";
+        });
+        console.log(element.textContent);
+        element.id = "active";
     });
 });
