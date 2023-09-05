@@ -258,3 +258,8 @@ header .icon span:hover
 {
     box-shadow: rgb(25, 211, 155) 0 0 4px 4px;          /*----Accent Color----*/
 }
+
+#active
+{
+    background: rgb(220, 220, 220, 0.2); 
+}
