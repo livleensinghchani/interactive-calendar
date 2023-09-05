@@ -42,6 +42,32 @@ body
     border-radius: 20px;
 
     margin: 0 5px;
+
+    padding: 0px 50px;
+}
+
+.wrapperSecondary h1
+{
+    font-size: 3.4rem;
+
+    text-align: center;
+
+    margin: 20px 40px;
+}
+
+.wrapperSecondary ul
+{
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.wrapperSecondary ul li
+{
+    margin-bottom: 20px;
+
+    text-align: justify;
+
+    list-style:armenian;
 }
 
 .wrapperMain
