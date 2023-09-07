@@ -1,6 +1,6 @@
 # Calendar
 
-https://chanidev.github.io/interactive-calendar/
+https://livleensinghchani.github.io/interactive-calendar/
 
 Project Details:
 
