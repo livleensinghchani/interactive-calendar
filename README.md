@@ -3,6 +3,7 @@
 https://chanidev.github.io/interactive-calendar/
 
 Project Details:
+
 As part of a university project, I designed and developed a sophisticated web-based calendar using HTML, CSS, and TypeScript. The project focused on delivering an intuitive and feature-rich calendar application with a primary emphasis on user experience.
 
 Key Achievements:
